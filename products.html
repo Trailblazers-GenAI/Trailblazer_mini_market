@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        :root {
+            --Primarygreen: #1F7669;
+            --Darktext: #202B2A;
+            --Warmbackground: #F7F6F0;
+            --Softgreenbackground: #EEF3EF;
+            --Palemint: #E8F4EE;
+            --Orangeaccent: #F18A53;
+            --Cardborder: #EAEBE6;
+            --Mutedtext: #7A8580;
+            --Errorred: #C74740;
+        }
+
+        header {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1.5px solid var(--Cardborder);
+        }
+
+        .logo p {
+            font-size: xx-large;
+            font-weight: bold;
+        }
+
+        .subheader span {
+            color: var(--Orangeaccent);
+        }
+
+        .search_bar {
+            flex-basis: 45%;
+        }
+
+        .search_bar input {
+            width: 100%;
+            outline: none;
+            background-color: var(--Warmbackground);
+            border: 2px solid var(--Cardborder);
+            padding: 10px 15px;
+            border-radius: 15px;
+            color: var(--Darktext);
+        }
+
+        .search_bar input::placeholder {
+            opacity: 0.5;
+        }
+
+        .cart {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 12px;
+            background-color: var(--Palemint);
+            color: var(--Primarygreen);
+            font-weight: bold;
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            font-size: x-small;
+            border-radius: 50%;
+            color: white;
+            background-color: var(--Orangeaccent);
+        }
+
+
+        nav ul {
+            display: flex;
+            gap: 10px;
+            padding-block: 10px;
+        }
+
+        nav li a {
+            color: var(--Mutedtext);
+            padding: 10px 15px;
+            border-radius: 50px;
+        }
+        
+        nav li a:hover {
+            color: var(--Primarygreen);
+            background-color: var(--Palemint);
+            font-weight: bold;
+        }
+
+        @media (max-width:576px) {
+
+            .subheader {
+                gap: 10px;
+                padding-bottom: 15px;
+            }
+
+            .search_bar input {
+                padding: 5px 10px;
+            }
+
+            .search_bar input::placeholder {
+                font-size: xx-small;
+            }
+
+            .cart {
+                padding: 5px 15px;
+                border-radius: 8px;
+                font-size: smaller;
+            }
+
+
+            .logo p {
+                font-size: medium;
+                font-weight: bold;
+            }
+
+            nav ul {
+                justify-content: space-between;
+                padding-inline: 10px;
+            }
+
+            nav li a {
+                padding: 0;
+                font-size: smaller;
+            }
+            
+            nav li a:hover {
+                padding: 5px 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="subheader">
+            <div class="logo">
+                <p>mini<span>market</span></p>
+            </div>
+            <div class="search_bar">
+                <input placeholder="🔍Search Products" id="search" name="search" type="text">
+            </div>
+
+            <div class="cart">
+                <p>Bag</p>
+                <p class="badge" id="badge">3</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Summary</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
