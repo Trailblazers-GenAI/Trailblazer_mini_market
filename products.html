@@ -178,5 +178,24 @@
             </ul>
         </nav>
     </header>
+     <main id="main-content">
+        <!-- Product listing, live search and category filtering. -->
+        <section id="products-page" aria-labelledby="products-heading">
+            <h1 class="products-heading" id="products-heading">Good things, daily.</h1>
+            <p class="products-subtitle">Discover everyday favorites, all in one place.</p>
+            <div class="products-toolbar">
+                <label class="products-category-label" for="category-filter">
+                    Category
+                    <select id="category-filter" name="category">
+                        <option value="all">All categories</option>
+                    </select>
+                </label>
+                <p id="products-count" role="status" aria-live="polite"></p>
+            </div>
+            <div id="products-grid" aria-live="polite" aria-label="Available products">
+                <p class="products-message">Loading products…</p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
