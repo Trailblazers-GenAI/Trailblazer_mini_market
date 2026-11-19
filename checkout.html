@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | MiniMarket</title>
+    <!-- <style>
+    </style> -->
+    <link rel="stylesheet" href="checkout.css">
+    <script type="module" src="main.js" defer>
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="subheader">
+        <a class="logo" href="products.html"
+          ><p>mini<span>market</span></p></a
+        >
+        <div class="search_bar"></div>
+        <a class="cart-link" href="cart.html"
+          >Bag <span class="badge" id="badge">0</span></a
+        >
+      </div>
+      <nav>
+        <ul>
+          <li><a class="" href="products.html">Products</a></li>
+          <li><a class="" href="cart.html">Cart</a></li>
+          <li><a class="active" href="checkout.html">Checkout</a></li>
+          <li><a class="" href="summary.html">Summary</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1 class="page-title">Delivery details</h1>
+      <p class="muted">Enter your details to place your order.</p>
+      <!-- style="margin-top: 50px" -->
+      <div class="two-col form-message-margin">
+        <form id="checkout-form" class="form-card" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" />
+            <small class="error" id="name-error"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label
+            ><input id="email" name="email" type="email" autocomplete="email" />
+            <small class="error" id="email-error"></small>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label
+            ><input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder="e.g. 08012345678"
+            /><small class="error" id="phone-error"></small>
+          </div>
+          <div class="field">
+            <label for="address">Delivery address</label
+            ><textarea
+              id="address"
+              name="address"
+              rows="3"
+              autocomplete="street-address"
+            ></textarea
+            ><small class="error" id="address-error"></small>
+          </div>
+          <button type="submit">Place Order</button>
+          <p id="form-message" class="error form-message-margin"></p>
+        </form>
+        <aside class="panel">
+          <h2>Order overview</h2>
+          <div id="checkout-items"></div>
+          <div class="total-row">
+            <span>Total</span><span id="checkout-total">₦0.00</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
