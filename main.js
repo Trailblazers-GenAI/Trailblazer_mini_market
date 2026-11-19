@@ -13,7 +13,7 @@
  * Load from index.html with: <script type="module" src="./main.js"></script>
  */
 
-import { initProducts } from './products.js';
+import { initProducts } from './js/products.js';
 import { Cart, initCartUI } from './cart.js';
 import { initCheckout } from './checkout.js';
 import { initSummary } from './summary.js';
