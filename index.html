@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1F7669">
+    <title>Mini Marketplace | mini market</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        :root {
+            --Primarygreen: #1F7669;
+            --Darktext: #202B2A;
+            --Warmbackground: #F7F6F0;
+            --Softgreenbackground: #EEF3EF;
+            --Palemint: #E8F4EE;
+            --Orangeaccent: #F18A53;
+            --Cardborder: #EAEBE6;
+            --Mutedtext: #7A8580;
+            --Errorred: #C74740;
+        }
+
+        header {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1.5px solid var(--Cardborder);
+        }
+
+        .logo p {
+            font-size: xx-large;
+            font-weight: bold;
+        }
+
+        .subheader span {
+            color: var(--Orangeaccent);
+        }
+
+        .search_bar {
+            flex-basis: 45%;
+        }
+
+        .search_bar input {
+            width: 100%;
+            outline: none;
+            background-color: var(--Warmbackground);
+            border: 2px solid var(--Cardborder);
+            padding: 10px 15px;
+            border-radius: 15px;
+            color: var(--Darktext);
+        }
+
+        .search_bar input::placeholder {
+            opacity: 0.5;
+        }
+
+        .cart {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 12px;
+            background-color: var(--Palemint);
+            color: var(--Primarygreen);
+            font-weight: bold;
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            font-size: x-small;
+            border-radius: 50%;
+            color: white;
+            background-color: var(--Orangeaccent);
+        }
+
+
+        nav ul {
+            display: flex;
+            gap: 10px;
+            padding-block: 10px;
+        }
+
+        nav li a {
+            color: var(--Mutedtext);
+            padding: 10px 15px;
+            border-radius: 50px;
+        }
+        
+        nav li a:hover {
+            color: var(--Primarygreen);
+            background-color: var(--Palemint);
+            font-weight: bold;
+        }
+
+        @media (max-width:576px) {
+
+            .subheader {
+                gap: 10px;
+                padding-bottom: 15px;
+            }
+
+            .search_bar input {
+                padding: 5px 10px;
+            }
+
+            .search_bar input::placeholder {
+                font-size: xx-small;
+            }
+
+            .cart {
+                padding: 5px 15px;
+                border-radius: 8px;
+                font-size: smaller;
+            }
+
+
+            .logo p {
+                font-size: medium;
+                font-weight: bold;
+            }
+
+            nav ul {
+                justify-content: space-between;
+                padding-inline: 10px;
+            }
+
+            nav li a {
+                padding: 0;
+                font-size: smaller;
+            }
+            
+            nav li a:hover {
+                padding: 5px 10px;
+            }
+        }
+
+    </style>
+    <style>
+        /* Shared integration rules; feature-specific styling lives in separate files. */
+        body { min-width: 280px; background: var(--Warmbackground); color: var(--Darktext); font-family: Arial, Helvetica, sans-serif; }
+        [hidden] { display: none !important; }
+        .site-header { max-width: 1280px; margin: 0 auto; }
+        .logo a { color: var(--Darktext); }
+        .logo a:focus-visible, .search_bar input:focus-visible,
+        .cart:focus-visible, nav a:focus-visible { outline: 3px solid var(--Orangeaccent); outline-offset: 3px; }
+        .search_bar input { font: inherit; }
+        nav a[aria-current="page"] { color: var(--Primarygreen); background: var(--Palemint); font-weight: bold; }
+        #cart-page { max-width: 1200px; margin-left: auto; margin-right: auto; }
+        #cart-page .cart-intro { margin-bottom: 22px; }
+        #cart-page .cart-subtitle { color: var(--Mutedtext); margin-top: 8px; line-height: 1.5; }
+        #cart-page .cart-summary__heading { font-size: 1.15rem; margin-bottom: 20px; }
+        .checkout-field { min-width: 0; }
+        @media (max-width: 576px) {
+            .site-header { padding: 16px 14px 12px; margin-bottom: 18px; }
+            .subheader { flex-wrap: wrap; }
+            .logo { order: 1; }
+            .cart { order: 2; }
+            .search_bar { order: 3; flex: 0 0 100%; }
+            .search_bar input { min-height: 40px; font-size: 16px; }
+            nav ul { flex-wrap: wrap; gap: 8px; padding-inline: 0; }
+            nav li a { display: inline-block; padding: 8px 9px; }
+            nav li a:hover { padding: 8px 9px; }
+        }
+    </style>
+    <link rel="stylesheet" href="./products.css">
+    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./checkout.css">
+    <link rel="stylesheet" href="./summary.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="subheader">
+            <div class="logo">
+                <p><a href="#products" data-page="products">mini<span>market</span></a></p>
+            </div>
+            <div class="search_bar" role="search">
+                <input placeholder="🔍Search Products" id="search" name="search" type="search" aria-label="Search products by name" autocomplete="off">
+            </div>
+            <a class="cart" href="#cart" data-page="cart" aria-label="View shopping bag">
+                <span>Bag</span>
+                <span class="badge" id="badge" aria-live="polite">0</span>
+            </a>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#products" data-page="products" aria-current="page">Products</a></li>
+                <li><a href="#cart" data-page="cart">Cart</a></li>
+                <li><a href="#checkout" data-page="checkout">Checkout</a></li>
+                <li><a href="#summary" data-page="summary">Summary</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Member 1: Product listing, live search and category filtering. -->
+        <section id="products-page" aria-labelledby="products-heading">
+            <h1 class="products-heading" id="products-heading">Good things, daily.</h1>
+            <p class="products-subtitle">Discover everyday favorites, all in one place.</p>
+            <div class="products-toolbar">
+                <label class="products-category-label" for="category-filter">
+                    Category
+                    <select id="category-filter" name="category">
+                        <option value="all">All categories</option>
+                    </select>
+                </label>
+                <p id="products-count" role="status" aria-live="polite"></p>
+            </div>
+            <div id="products-grid" aria-live="polite" aria-label="Available products">
+                <p class="products-message">Loading products…</p>
+            </div>
+        </section>
+
+        <!-- Member 2: Cart, quantity controls and subtotal. -->
+        <section id="cart-page" aria-labelledby="cart-heading" hidden>
+            <div class="cart-intro">
+                <h1 id="cart-heading">Your Cart</h1>
+                <p class="cart-subtitle">Review your items before checkout.</p>
+            </div>
+            <div class="cart-layout">
+                <div id="cart-items" aria-live="polite"></div>
+                <aside class="cart-summary" aria-label="Cart order summary">
+                    <h2 class="cart-summary__heading">Order summary</h2>
+                    <p>Subtotal <span id="cart-subtotal">$0.00</span></p>
+                    <button id="checkout-button" type="button" disabled>Continue to Checkout</button>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Member 3: Validated checkout form. -->
+        <section id="checkout-page" aria-labelledby="checkout-heading" hidden>
+            <h1 id="checkout-heading" class="checkout-heading">Checkout</h1>
+            <p class="checkout-subtitle">Almost there. Enter your details to place your order.</p>
+            <form id="checkout-form" novalidate>
+                <h2 class="checkout-section-title">Customer information</h2>
+                <div class="checkout-fields-grid">
+                    <div class="checkout-field">
+                        <label for="checkout-name">Full name</label>
+                        <input id="checkout-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+                        <p id="checkout-name-error" class="checkout-error"></p>
+                    </div>
+                    <div class="checkout-field">
+                        <label for="checkout-email">Email address</label>
+                        <input id="checkout-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                        <p id="checkout-email-error" class="checkout-error"></p>
+                    </div>
+                    <div class="checkout-field">
+                        <label for="checkout-phone">Phone number</label>
+                        <input id="checkout-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Digits only" required>
+                        <p id="checkout-phone-error" class="checkout-error"></p>
+                    </div>
+                    <div class="checkout-field checkout-field--full">
+                        <label for="checkout-address">Delivery address</label>
+                        <textarea id="checkout-address" name="address" autocomplete="street-address" placeholder="Street address and delivery details" rows="4" required></textarea>
+                        <p id="checkout-address-error" class="checkout-error"></p>
+                    </div>
+                </div>
+                <p id="checkout-cart-error" class="checkout-error" role="alert"></p>
+                <div class="checkout-order-panel">
+                    <p class="checkout-total-row">Order total <span id="checkout-total">$0.00</span></p>
+                    <button id="place-order-button" type="submit" disabled>Place Order</button>
+                    <p class="checkout-privacy-note">Your details are used for this demonstration order only.</p>
+                </div>
+            </form>
+        </section>
+
+        <!-- Member 4: Completed order confirmation and continue shopping. -->
+        <section id="summary-page" aria-label="Order confirmation" hidden>
+            <div id="order-summary" aria-live="polite"></div>
+            <button id="continue-shopping-button" type="button" disabled>Continue Shopping</button>
+        </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
