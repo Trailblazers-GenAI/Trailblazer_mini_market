@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/summary.css">
+    <link rel="stylesheet" href="./css/cart.css">
 
   <script type="module" src="main.js" defer></script>
   
@@ -37,6 +38,40 @@
     </header>
 
     <main>
+        <section id="cart" class="hidden">
+            <h2>Your cart</h2>
+            <p id="cart_items_num">2 items ready for you.</p>
+            <div id="emptyCart_container" class="emptyCart_container">
+                <p class="emptycard_state">Empty Cart State</p>
+                <div class="empty_cart_message_container">
+                    <div class="cart_image">
+                        <img src="./icons/shopping-cart-svgrepo-com.svg" alt="">
+                    </div>
+                    <h3>Your cart is empty</h3>
+                    <p>Let's find something lovely</p>
+                    <button id="browse_product">Browse products</button>
+                </div>
+            </div>
+
+            <div id="cart_items_container" class="cart_items_container">
+                <div id="items_card_container" class="items_card_container">
+    
+                </div>
+
+                <div class="subtotal_details">
+                    <div>
+                        <p>Subtotal</p>
+                        <p id="subtotal" class="subtotal_amount"></p>
+                    </div>
+                    
+                    <p>Delivery calculated at checkout</p>
+                </div>
+
+                <div class="cont_btn_div">
+                    <button id="cont_to_checkout">Continue to Checkout</button>
+                </div>
+            </div>
+        </section>
         <section id="summary">
             <div class="order_status_container">
                 <div class="status_icon">
