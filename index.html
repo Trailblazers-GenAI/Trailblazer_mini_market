@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/summary.css">
 
   <script type="module" src="main.js" defer></script>
   
@@ -36,7 +37,78 @@
     </header>
 
     <main>
-
+        <section id="summary">
+            <div class="order_status_container">
+                <div class="status_icon">
+                    <img src="./icons/check-mark-black-outline-svgrepo-com.svg" alt="order status icon">
+                </div>
+                <div class="status">
+                    <h2>Order confirmed</h2>
+                    <p>Thanks, <span id="username"></span>. We're getting it ready</p>
+                </div>
+            </div>
+    
+            <div class="order_info_container">
+                <div class="order_id">
+                    <p>Order ID</p>
+                    <p id="order_id"></p>
+                </div>
+    
+                <time id="time" datetime=""></time>
+            </div>
+    
+            <div class="customer_detail">
+                <h3>Customer details</h3>
+                <div>
+                    <p class="detail">Name</p>
+                    <p id="customer_name" class="name"></p>
+                </div>
+                <div>
+                    <p class="detail">Email</p>
+                    <p id="customer_email"></p>
+                </div>
+                <div>
+                    <p class="detail">Phone</p>
+                    <p id="customer_phone"></p>
+                </div>
+                <div>
+                    <p class="detail">Delivery</p>
+                    <p id="customer_address"></p>
+                </div>
+            </div>
+    
+            <div class="items_container">
+                <div class="item_header">
+                    <h3>Items in your order</h3>
+                    <p><span id="item_num"></span></p>
+                </div>
+    
+                <div id="itemCard_container" class="itemCard_container">
+    
+                </div>
+            </div>
+    
+            <div class="subtotal_container">
+                <div>
+                    <p>Subtotal</p>
+                    <p id="summary_subtotal"></p>
+                </div>
+    
+                <div>
+                    <p>Delivery</p>
+                    <p id="delivery"></p>
+                </div>
+            </div>
+    
+            <div class="total_container">
+                <p>Total paid</p>
+                <p id="total"></p>
+            </div>
+    
+            <div class="button_container">
+                <button id="continue_btn" class="continue_btn">Continue Shopping</button>
+            </div>
+        </section>
     </main>
 </body>
 </html>
