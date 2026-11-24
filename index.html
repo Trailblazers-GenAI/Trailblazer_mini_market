@@ -72,6 +72,42 @@
                 </div>
             </div>
         </section>
+        <section id="checkout" class="hidden">
+            <h2>Delivery details</h2>
+            <p>where should we send your order.</p>
+          <div class="checkout_container">
+              <form id="delivery_form" class="delivery_form" action="#">
+                <label for="fullname">
+                  Full name
+                  <input name="fullname" id="fullname" type="text" />
+                  <span id="fullname_error"></span>
+                </label>
+                <label for="email">
+                  Email
+                  <input name="email" id="email" type="email" />
+                  <span id="email_error"></span>
+                </label>
+                <label for="phone">
+                  Phone Number
+                  <input name="phone" id="phone" type="number" />
+                  <span id="phone_error"></span>
+                </label>
+                <label for="address">
+                  Address
+                  <textarea name="address" id="address" ></textarea>
+                  <span id="address_error"></span>
+                </label>
+              </form>
+              <aside>
+                <h3>Order total</h3>
+                <p id="delivery_item_num"></p>
+                <p id="delivery_total" class="delivery_total"></p>
+              </aside>
+          </div>
+          <div class="place_order_btn">
+            <button id="place_order">Place Order</button>
+          </div>
+        </section>
         <section id="summary">
             <div class="order_status_container">
                 <div class="status_icon">
